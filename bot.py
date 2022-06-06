@@ -12,7 +12,7 @@ logging.basicConfig(level=logging.INFO)
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
 x =Info()
-ADMIN =1344241185
+ADMIN =ADMIN'S ID HERE
 
 
 @dp.message_handler(commands='start')
@@ -140,7 +140,7 @@ async def contact_handler(message: types.Message):
 			\n\nHaridingiz uchun rahmat !! \nCall center bo'limi siz bilan tez orada bog'lanadi...📞", \
 			reply_markup=qayta)
 
-@dp.message_handler(commands='Alluser', user_id=1344241185)
+@dp.message_handler(commands='Alluser', user_id=[ADMIN'S ID HERE])
 async def allusers(message: types.Message):
 	user_id =message.from_user.id
 	counted =x.user_counter(user_id)
