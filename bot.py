@@ -12,7 +12,7 @@ logging.basicConfig(level=logging.INFO)
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
 x =Info()
-ADMIN = INT('ADMIN'S ID HERE')
+ADMIN = INT("ADMIN'S ID HERE")
 
 
 @dp.message_handler(commands='start')
