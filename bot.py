@@ -12,7 +12,7 @@ logging.basicConfig(level=logging.INFO)
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
 x =Info()
-ADMIN =ADMIN'S ID HERE
+ADMIN = INT('ADMIN'S ID HERE')
 
 
 @dp.message_handler(commands='start')
@@ -139,8 +139,9 @@ async def contact_handler(message: types.Message):
 		await message.answer("✅  Sizning ma'lumotlaringiz qabul qilib olindi\
 			\n\nHaridingiz uchun rahmat !! \nCall center bo'limi siz bilan tez orada bog'lanadi...📞", \
 			reply_markup=qayta)
-
-@dp.message_handler(commands='Alluser', user_id=[ADMIN'S ID HERE])
+        
+#Ro'yhatdan o'tgan foydalanuvchilar username va id sini tartibli holatida qaytaradi
+@dp.message_handler(commands='Alluser', user_id=ADMIN)
 async def allusers(message: types.Message):
 	user_id =message.from_user.id
 	counted =x.user_counter(user_id)
@@ -153,13 +154,13 @@ async def allusers(message: types.Message):
 		
 	await bot.send_message(ADMIN, f"Foydalanuvchilar soni: {counted[0][0]} ta \
 		\n{userlist}")
-
-@dp.message_handler(commands='all', user_id=1344241185)
+#Ro'yhatdan o'tgan foydalanuvchilar username va id sini list holatida qaytaradi
+@dp.message_handler(commands='all', user_id=ADMIN)
 async def userss(message: types.Message):
-	user_id =message.from_user.id
-	user =x.users(user_id)
-	await bot.send_message(ADMIN, users)
-
+    user_id =message.from_user.id
+    user =x.users(user_id)
+    await bot.send_message(ADMIN,user)
+    
 @dp.callback_query_handler(text="tosh_biz_nat_kech_jarima")
 async def tosh_biz_jar(call:CallbackQuery):
 	await call.message.answer("📃  🖋  Aviachiptani qayta rasmiylashtirish  🔽\
@@ -225,8 +226,6 @@ async def tosh_biz_jar(call:CallbackQuery):
 async def qayta_harid(message: types.Message):
 	await message.answer(f"Assalomu aleykum hurmatli {message.from_user.full_name}\
       \n✈ 🗺  Uzbekistan Airways ga xush kelibsiz \nSizga qanday yordam bera olamiz 🤵‍♂🤵‍♀",reply_markup=bosh_menyu)
-
-
 
 
 #Mahalliy tariflar vaqtlari Farg'ona - Urganch

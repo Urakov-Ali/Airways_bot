@@ -1,1 +1,1 @@
-API_TOKEN = 'Your token here'
+API_TOKEN = 'ADMIN'S TOKEN HERE'
