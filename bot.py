@@ -118,7 +118,7 @@ async def tosh_kun_tugat(call:CallbackQuery):
 	\n\nQuyida telefon raqamingizni qoldiring...",\
 	parse_mode='HTML',reply_markup=tel)
 
-@dp.message_handler(content_types=['contact'])
+@dp.message_handler(content_types=['contact'], is_sender_contact=True)
 async def contact_handler(message: types.Message):
 	user_id =message.from_user.id
 	username =message.from_user.username
